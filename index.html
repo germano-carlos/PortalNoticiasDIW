@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"
+    />
+    <meta content="Portal de Notícias" name="description" />
+    <meta content="Carlos Germano" name="author" />
+
+    <title>G2 - Portal de Notícias</title>
+
+    <script
+      src="https://kit.fontawesome.com/20da6b49f9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="shortcut icon"
+      type="imagem/x-icon"
+      href="./assets/images/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="./assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+      <div class="topbar-main">
+        <div class="container-fluid">
+          <!-- Logo container-->
+          <div class="logo">
+            <a href="index.html" class="logo">
+              <img
+                src="./assets/images/logo-light.png"
+                alt=""
+                class="logo-large"
+              />
+            </a>
+          </div>
+
+          <!-- End Logo container-->
+          <div class="menu-extras topbar-custom">
+            <ul class="navbar-right list-inline float-right mb-0">
+              <li
+                class="dropdown notification-list list-inline-item d-none d-md-inline-block"
+              >
+                <form role="search" class="app-search">
+                  <div class="form-group mb-0">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search.."
+                    />
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </li>
+              <!-- language -->
+              <li
+                class="dropdown notification-list list-inline-item d-none d-md-inline-block"
+              >
+                <a
+                  class="nav-link dropdown-toggle arrow-none"
+                  data-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="false"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="assets/images/flags/brazil_flag.png"
+                    class="mr-2"
+                    height="12"
+                    alt=""
+                  />
+                  Brazilian <span class="mdi mdi-chevron-down"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- end menu-extras -->
+
+          <div class="clearfix"></div>
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end topbar-main -->
+
+      <!-- MENU Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+              <li class="has-submenu" onclick="changeNoticeType('general')">
+                <i class="fa fa-home"></i
+                ><span>G2 - Sua Página de Notícias</span>
+              </li>
+              <li class="has-submenu" onclick="changeNoticeType('business')">
+                <i class="fas fa-book"></i><span>Negócios</span>
+              </li>
+              <li class="has-submenu" onclick="changeNoticeType('sports')">
+                <i class="fas fa-running"></i><span>Esportes</span>
+              </li>
+              <li class="has-submenu" onclick="changeNoticeType('health')">
+                <i class="fas fa-first-aid"></i><span>Saúde</span>
+              </li>
+              <li class="has-submenu" onclick="changeNoticeType('technology')">
+                <i class="fas fa-sim-card"></i><span>Tecnologia</span>
+              </li>
+              <li
+                class="has-submenu"
+                onclick="changeNoticeType('entertainment')"
+              >
+                <i class="fas fa-hashtag"></i><span>Entreterimento</span>
+              </li>
+              <li class="has-submenu dropdowns">
+                <a href="#"
+                  ><i class="fas fa-archway"></i><span>Sources</span></a
+                >
+                <ul class="submenu">
+                  <li>
+                    <ul id="news-source"></ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- End navigation menu -->
+          </div>
+          <!-- end #navigation -->
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+
+    <!-- page wrapper start -->
+    <div class="wrapper">
+      <!-- Firsts News in carouse -->
+      <div class="row">
+        <!-- /carousel -->
+        <div id="carousel-slides" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-slides" data-slide-to="1"></li>
+            <li data-target="#carousel-slides" data-slide-to="2"></li>
+            <li data-target="#carousel-slides" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner" id="carousel">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100"
+                src="./assets/images/slides/slide1.jpg"
+                alt="First slide"
+              />
+              <!-- Static Header -->
+              <div class="header-text hidden-xs">
+                <div class="col-md-12 text-center">
+                  <h3>
+                    <span
+                      >Lives de Sandy & Junior e Raça Negra embalam isolamento
+                      hoje</span
+                    >
+                  </h3>
+                </div>
+              </div>
+              <!-- /header-text -->
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carousel-slides"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carousel-slides"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <!-- Firsts News end -->
+
+      <div class="row px-4 pt-3">
+        <div class="col-md-8" id="lista_noticias">
+          <!-- First Columns Start -->
+          <div class="box-exclusive">
+            <!-- Exclusive New -->
+          </div>
+          <!-- End Exclusive New-->
+
+          <hr />
+          <!-- Split line-->
+
+          <div class="news-alert">
+            <h5>ULTIMAS NÓTICIAS</h5>
+          </div>
+          <!-- Strong Line -->
+
+          <div class="noticias first-group row"></div>
+
+          <div class="row" id="publish">
+            <img
+              class="d-block w-100"
+              src="./assets/images/publish/americanas.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- First Columns End -->
+        <!-- Class Row Start -->
+        <div class="col-md-4" id="not_mobile">
+          <!-- Second Columns Start -->
+          <hr class="linha_vertical" />
+          <!-- Vertical Line -->
+          <div class="news-alert">
+            <h5>NÓTICIAS DE FAMOSOS</h5>
+          </div>
+          <!-- Strong Line  -->
+
+          <div class="famous-noticia"></div>
+          <!-- End Column famous -->
+
+          <hr />
+
+          <div class="news-alert">
+            <h5>Selecione uma música para ouvir</h5>
+          </div>
+          <!-- Strong Line  -->
+
+          <br />
+          <ul>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/lDK9QqIzhwk"
+                ><strong>| Bon Jovi</strong> - Livin on a Prayer |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/TAoMWdTYqRE"
+                ><strong>| Ferrugem</strong> - Sinto sua Falta |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/noKzDrxHioc"
+                ><strong>| Marília Mendonça</strong> - Serenata |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/xDCTiYEBDkA"
+                ><strong>| Raffa Torres</strong> - A vida é um Rio |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/339Gmc5xeCI"
+                ><strong>| Wesley Safadão</strong> - Vou dar Virote |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/htc1z4Uv0HA"
+                ><strong>| Gustavo Mioto</strong> - Com ou sem Mim |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/ZPBYtmQvzNQ"
+                ><strong>| Raffa Torres</strong> - Libera Ela |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/Jjaam_eDwvk"
+                ><strong>| Jorge e Matheus</strong> - Prisão sem Grade |</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-item"
+                class="video-item"
+                data-link="https://www.youtube.com/embed/98BMxJU1AGw"
+                ><strong>| Bruno e Marrone</strong> - Na Conta Da Loucura |</a
+              ><br />
+            </li>
+          </ul>
+          <div class="embed-responsive embed-responsive-16by9" id="video">
+            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
+          </div>
+        </div>
+        <!-- Second Columns End -->
+      </div>
+      <!-- Class Row End -->
+    </div>
+    <!-- page wrapper end -->
+
+    <footer class="footer">
+      <!-- Footer -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            G2 - Portal de Notícias
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
