@@ -1,14 +1,12 @@
 const content = document.querySelector("header");
 document.addEventListener("scroll", (e) => {
   let scrolled = document.scrollingElement.scrollTop;
-  console.log(scrolled);
   if (scrolled > 300) {
     content.classList.add("mini");
   } else {
     content.classList.remove("mini");
   }
 });
-
 const getArticles = (url) => {
   $(document).ready(() => {
     $.ajax(url, {
@@ -79,7 +77,6 @@ const contentArticles = (articles) => {
 
   template.html(template2);
 };
-
 const contentBanners = () => {
   const banner = $("#carousel");
   let carouselInner = "";
@@ -147,7 +144,6 @@ const contentFamous = () => {
     }
   );
 };
-
 const getSource = () => {
   const menuSource = $("#news-source");
   var menuDinamico = "";
@@ -177,3 +173,76 @@ const changeNoticeType = (type) => {
     `http://newsapi.org/v2/top-headlines?country=br&category=${type}&from=2020-06-16&sortBy=publishedAt&domains=techcrunch.com&apiKey=7809950b17ce46258a08cf73f1e71596`
   );
 };
+
+
+/* ALTERA SOMENTE AS "ULTIMAS NOTICIAS" */
+const keyUpFunction = () => {
+  var input, filter, element, i, txtValue, article;
+  input = document.getElementById('searchbar');
+  filter = input.value.toUpperCase();
+  
+  element = document.getElementById('noticias');
+  article = element.getElementsByTagName("article");
+
+  for (i = 0; i < article.length; i++) {
+    txtValue = article[i].textContent || article[i].innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      article[i].style.display = "";
+    } else {
+      article[i].style.display = "none";
+    }
+  }
+}
+
+function saveSearch() {
+
+  var text = $('#searchbar').val();
+  let searchs = localStorage.getItem("searchs");
+
+  var item = {
+    name: text
+  };
+
+  if(text != '' || text != null)
+  {
+    if(searchs != null)
+    {
+      cart = JSON.parse(searchs);
+  
+      cart.push(item);
+      localStorage.setItem('searchs', JSON.stringify(cart));
+    }
+    else
+    {
+      localStorage.setItem('searchs', JSON.stringify([item]));
+    }
+  }
+
+  listSearch();
+}
+
+const listSearch = () => {
+  var saved = $('#saved-searchs');
+  var itens = localStorage.getItem("searchs");
+  var templateSaved = '';
+
+  if(itens != null)
+  {
+      let json = JSON.parse(itens);
+      for(i=0;i<json.length;i++)
+      {
+        templateSaved += `<a class="pesquisa-item" data-keyword="${json[i].name}">${json[i].name}</a>`;
+      }
+  }
+
+  saved.html(templateSaved);
+}
+
+listSearch();
+
+$('.pesquisa-item').on("click", function (event) {
+  alert('Inserimos a sua busca antiga no pesquisar, favor realizar alguma ação em cima da barra de pesquisa');
+  var context = $(this).data('keyword');
+  $('#searchbar').val(context);
+})

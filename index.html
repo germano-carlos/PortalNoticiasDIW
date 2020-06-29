@@ -65,8 +65,11 @@
                       type="text"
                       class="form-control"
                       placeholder="Search.."
+                      onkeyup="keyUpFunction()"
+                      id="searchbar"
                     />
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit" 
+                    onclick="saveSearch()"><i class="fa fa-search"></i></button>
                   </div>
                 </form>
               </li>
@@ -136,6 +139,17 @@
                 <ul class="submenu">
                   <li>
                     <ul id="news-source"></ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-submenu dropdowns">
+                <a href="#"
+                  ><i class="fa fa-search"></i><span>Pesquisas Salvas</span></a
+                >
+                <ul class="submenu">
+                  <li>
+                    <ul id="saved-searchs">
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -220,7 +234,7 @@
           </div>
           <!-- Strong Line -->
 
-          <div class="noticias first-group row"></div>
+          <div id="noticias" class="noticias first-group row"></div>
 
           <div class="row" id="publish">
             <img
